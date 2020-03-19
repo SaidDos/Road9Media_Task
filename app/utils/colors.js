@@ -1,7 +1,7 @@
 // this file for exporting all colors of the app in one place
 
 const colors = {
-  APP_THEME_COLOR: '#1DB954',
+  APP_THEME_COLOR: '#07dddd',
   GREY: 'grey',
   WHITE: 'white',
   BLACK: 'black',

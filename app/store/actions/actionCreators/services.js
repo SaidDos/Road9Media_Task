@@ -7,14 +7,15 @@ const listServicesFailed = () => ({type: actionTypes.LIST_SERVICES_FAILED});
 
 const listServicesSuccess = responseJson => ({
   type: actionTypes.LIST_SERVICES_SUCCESS,
-  services: responseJson,
+  services: responseJson.services,
 });
 
 export const listServices = listServicesRequestResponseHandler => dispatch => {
   dispatch(listServicesAttempt());
   api
-    .getData('', 'GET', null, null)
+    .getData('/posts', 'GET')
     .then(responseJson => {
+      console.log('response : '+JSON.stringify(responseJson))
       dispatch(listServicesSuccess(responseJson));
       listServicesRequestResponseHandler.onSuccess();
     })

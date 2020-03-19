@@ -16,9 +16,6 @@ const api = {
   getData(URL, Method) {
     return fetch(BASE_URL + URL, {
       method: Method,
-      headers: {
-        Authorization: 'Bearer ' + SPOTIFY_ACCESS_TOKEN,
-      },
     }).then(handleErrors);
   },
 };

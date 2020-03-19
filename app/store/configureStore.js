@@ -1,10 +1,10 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import ReduxThunk from 'redux-thunk';
-import listMovies from './reducers/services/services';
+import listServices from './reducers/services/services';
 
 //when using multiple reducers we must combine them in only one reducer
 const rootReducer = combineReducers({
-  listMovies,
+  listServices,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // to enable using redux devTools

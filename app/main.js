@@ -13,9 +13,9 @@ const App = () => {
         backgroundColor={colors.APP_THEME_COLOR}
         barStyle="dark-content"
       />
-       <Provider store={store()}>
-      <ServicesStackNav />
-       </Provider>
+      <Provider store={store()}>
+        <ServicesStackNav />
+      </Provider>
     </SafeAreaView>
   );
 };
