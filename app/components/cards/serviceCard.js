@@ -16,12 +16,12 @@ const serviceCard = props => {
         <Rating
           // showRating
           type="star"
-          startingValue={service.rate}
+          startingValue={service.review.overallRating}
           readonly
           imageSize={20}
           style={{padding:5}}
         />
-        <Text style={styles.serviceRating}>{service.rate}</Text>
+        <Text style={styles.serviceRating}>{service.review.overallRating}</Text>
         <Text style={styles.servicePrice}>{service.price} SAR <Text style={{color:colors.GREY}}>/ Hour</Text></Text>
       </View>
     </View>

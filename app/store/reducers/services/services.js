@@ -1,7 +1,7 @@
 import * as actionTypes from '../../actions/actionTypes';
 import updateObject from '../../../utils/functions/updateObject';
 import Service from '../../../models/Service';
-import {FAKED_SERVICES} from '../../../utils/constants';
+import {SERVICES} from '../../../utils/constants';
 
 const initialState = {
   services: [],
@@ -17,7 +17,7 @@ const mappingServices = (state, services) => {
     });
     return updateObject(state, {services: mappedServices, isLoading: false});
   }
-  return updateObject(state, {services: FAKED_SERVICES, isLoading: false});
+  return updateObject(state, {services: SERVICES, isLoading: false});
 };
 
 const listServices = (state = initialState, action) => {
