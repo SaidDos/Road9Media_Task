@@ -14,20 +14,33 @@ import ShareIcon from 'react-native-vector-icons/Entypo';
 import ServiceDetailsSection from '../components/views/sections/serviceDetailsSection';
 import ProviderDetailsSection from '../components/views/sections/providerDetailsSection';
 import Button from '../components/buttons/button';
+import Share from 'react-native-share';
 
 const serviceDetailsScreen = props => {
   const {service} = props.navigation.state.params; // getting playlist object from navigation obj
 
+  let shareOptions = {
+    title: 'Share Service Name Via',
+    message: service.name,
+  };
   const shareHandler = () => {
-    alert('share');
+    Share.open(shareOptions)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        alert(err);
+      });
   };
 
-  const onPressButtonHandler =()=>{
+  const onPressButtonHandler = () => {
     alert('request service');
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container} style={{flex:1, marginBottom:20}}>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      style={{flex: 1, marginBottom: 20}}>
       <Image source={{uri: service.image}} style={styles.image} />
       <TouchableOpacity onPress={shareHandler} style={styles.shareIcon}>
         <ShareIcon
@@ -38,9 +51,12 @@ const serviceDetailsScreen = props => {
         />
       </TouchableOpacity>
       <ServiceDetailsSection service={service} />
-      <ProviderDetailsSection service={service}  />
+      <ProviderDetailsSection service={service} />
       <Text style={styles.text}>OTHER SERVICES</Text>
-      <Button buttonName='REQUEST SERVICE' onPressButtonHandler={onPressButtonHandler} />
+      <Button
+        buttonName="REQUEST SERVICE"
+        onPressButtonHandler={onPressButtonHandler}
+      />
     </ScrollView>
   );
 };
@@ -50,6 +66,7 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     alignItems: 'center',
+    backgroundColor:colors.WHITE
   },
   image: {
     width: SCREEN_WIDTH,
@@ -65,13 +82,13 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5,
     justifyContent: 'center',
   },
-  text:{
-    fontWeight:'bold',
-    fontSize:18,
-    color:colors.BLACK,
-    alignSelf:'flex-start',
-    marginLeft:20
-  }
+  text: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: colors.BLACK,
+    alignSelf: 'flex-start',
+    marginLeft: 20,
+  },
 });
 
 export default serviceDetailsScreen;

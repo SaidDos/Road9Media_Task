@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 10,
     padding: 10,
+    borderColor:colors.GREY,
+    borderWidth:1
   },
   langText: {
     fontWeight: 'bold',

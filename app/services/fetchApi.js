@@ -1,5 +1,5 @@
 // this file used as a service in fetching APIs
-import {BASE_URL, SPOTIFY_ACCESS_TOKEN} from '../utils/constants';
+import {BASE_URL} from '../utils/constants';
 
 // here's where we handle errors
 async function handleErrors(response) {
@@ -14,8 +14,12 @@ async function handleErrors(response) {
 
 const api = {
   getData(URL, Method) {
+    const headers = {
+      'Content-Type': 'application/json',
+    };
     return fetch(BASE_URL + URL, {
       method: Method,
+      headers,
     }).then(handleErrors);
   },
 };

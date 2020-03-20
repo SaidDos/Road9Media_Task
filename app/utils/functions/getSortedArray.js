@@ -1,7 +1,8 @@
-// this is a function takes 1 arg and retrun sorted array by names
+// this is a function takes 1 arg and retrun sorted array by prices
 
 export const getSortedArray = array => {
-  return array.sort((a, b) =>
-    a.name > b.name ? 1 : a.name === b.name ? 0 : -1,
+  let clonnedArray = JSON.parse(JSON.stringify(array));
+  return clonnedArray.sort((a, b) =>
+    a.price > b.price ? 1 : a.price === b.price ? 0 : -1,
   );
 };

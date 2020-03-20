@@ -14,16 +14,24 @@ import {useDispatch, useSelector} from 'react-redux';
 import SearchTextInput from '../components/textInputs/searchTextInput';
 import FilterSortSection from '../components/views/sections/filterSortSection';
 import ApplyLoanModal from '../components/modals/filterModal';
+import {search} from '../utils/functions/search';
+import {getSortedArray} from '../utils/functions/getSortedArray';
 
 const servicesScreen = props => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState(null); //initializing search term by null
-const [modalVisible, setModalVisible]=useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const isLoading = useSelector(state => state.listServices.isLoading);
-  const services = useSelector(state => state.listServices.services);
+  let services = useSelector(state => state.listServices.services);
+  const [serviceList, setServiceList] = useState([]);
 
   const onChangeText = term => {
-    setSearchTerm(term);
+    if (term) {
+      let searchResult = search(services, term);
+      setServiceList(searchResult);
+    } else {
+      setServiceList(services);
+    }
   };
 
   const listServicesRequestResponseHandler = {
@@ -34,6 +42,10 @@ const [modalVisible, setModalVisible]=useState(false);
   useEffect(() => {
     dispatch(listServices(listServicesRequestResponseHandler)); //fetching services when mounting screen
   }, []);
+
+  useEffect(() => {
+    setServiceList(services);
+  }, [services]);
 
   const renderItem = ({item}) => (
     <TouchableOpacity
@@ -52,7 +64,9 @@ const [modalVisible, setModalVisible]=useState(false);
   };
 
   const sortHandler = () => {
-    alert('sort');
+    let sortedServices = getSortedArray(serviceList);
+    setServiceList(sortedServices);
+    // alert('sort');
   };
 
   const filterHandler = () => {
@@ -60,7 +74,7 @@ const [modalVisible, setModalVisible]=useState(false);
     // alert('filter');
   };
 
-  const closeModal =()=>{
+  const closeModal = () => {
     setModalVisible(false);
   };
 
@@ -70,23 +84,21 @@ const [modalVisible, setModalVisible]=useState(false);
         <SearchTextInput onchangeText={onChangeText} searchTerm={searchTerm} />
       </View>
       <>
-      <FilterSortSection
-        numOfServices={services.length}
-        sortHandler={sortHandler}
-        filterHandler={filterHandler}
-      />
+        <FilterSortSection
+          numOfServices={serviceList.length}
+          sortHandler={sortHandler}
+          filterHandler={filterHandler}
+        />
       </>
       <FlatList
-        data={services}
-        extraData={services}
+       keyboardShouldPersistTaps="always"
+        data={serviceList}
+        extraData={serviceList}
         renderItem={renderItem}
         keyExtractor={(item, index) => item.id}
         ListFooterComponent={footer}
       />
-       <ApplyLoanModal
-            modalVisible={modalVisible}
-            closeModal={closeModal}
-          />
+      <ApplyLoanModal modalVisible={modalVisible} closeModal={closeModal} />
     </View>
   );
 };

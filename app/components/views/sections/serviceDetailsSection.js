@@ -17,11 +17,12 @@ const serviceDetailsSection = props => {
       <Text style={styles.serviceName}>{service.name}</Text>
       <View style={styles.row}>
         <Rating
-          // showRating
-          type="star"
+          type="custom"
           startingValue={service.review.overallRating}
           readonly
           imageSize={20}
+          style={{padding: 5}}
+          tintColor={'#f5f5f5'}
         />
         <Text style={styles.serviceRating}>{service.review.overallRating}</Text>
         <Text style={[styles.servicePrice, {color: colors.GREY}]}>
@@ -43,10 +44,12 @@ const styles = StyleSheet.create({
   section: {
     height: 140,
     width: SCREEN_WIDTH - 40,
-    backgroundColor: colors.LIGHT_GREY,
+    backgroundColor: '#f5f5f5',
     borderRadius: 10,
     marginTop: 10,
     padding:10,
+    borderColor:colors.GREY,
+    borderWidth:1
   },
   serviceName: {
     color: colors.BLACK,
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
     height: 30,
     // backgroundColor:'yellow',
     flexDirection: 'row',
-    alignItems:'center'
+    alignItems:'center',
   },
 });
 export default serviceDetailsSection;
