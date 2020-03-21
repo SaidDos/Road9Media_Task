@@ -16,6 +16,7 @@ import FilterSortSection from '../components/views/sections/filterSortSection';
 import ApplyLoanModal from '../components/modals/filterModal';
 import {search} from '../utils/functions/search';
 import {getSortedArray} from '../utils/functions/getSortedArray';
+import {getFilteredServices} from '../utils/functions/getFilteredServices';
 
 const servicesScreen = props => {
   const dispatch = useDispatch();
@@ -78,6 +79,12 @@ const servicesScreen = props => {
     setModalVisible(false);
   };
 
+  const getFilteredData = (providerName, serviceRating, servicePrice)=>{
+    let sortedServices = getFilteredServices(serviceList, providerName, serviceRating, servicePrice );
+    closeModal();
+    setServiceList(sortedServices);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.margin}>
@@ -98,7 +105,11 @@ const servicesScreen = props => {
         keyExtractor={(item, index) => item.id}
         ListFooterComponent={footer}
       />
-      <ApplyLoanModal modalVisible={modalVisible} closeModal={closeModal} />
+      <ApplyLoanModal 
+      modalVisible={modalVisible} 
+      closeModal={closeModal}
+      getFilteredData={getFilteredData}
+      />
     </View>
   );
 };

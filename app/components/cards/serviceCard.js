@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     alignSelf:'center',
-    color:colors.APP_THEME_COLOR
+    color:colors.APP_THEME_COLOR,
+    fontWeight:'bold',
   },
   serviceRating: {
     justifyContent: 'flex-start',

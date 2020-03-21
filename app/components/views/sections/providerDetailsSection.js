@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, FlatList} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import colors from '../../../utils/colors';
 import {SCREEN_WIDTH} from '../../../utils/constants';
 import Separator from '../../views/seprator';
