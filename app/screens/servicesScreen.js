@@ -51,7 +51,7 @@ const servicesScreen = props => {
   const renderItem = ({item}) => (
     <TouchableOpacity
       onPress={
-        () => props.navigation.navigate('ServiceDetailsScreen', {service: item}) //sending service object to ServiceDetails Screen when navigate
+        () => props.navigation.navigate('ServiceDetailsScreen', {service: item, services:serviceList}) //sending service object to ServiceDetails Screen when navigate
       }>
       <ServiceCard service={item} />
     </TouchableOpacity>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
 import colors from '../../../utils/colors';
 import {SCREEN_WIDTH} from '../../../utils/constants';
@@ -8,11 +8,13 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const reviewSection = props => {
   const {service} = props;
+  const [itemCount, setItemCount] = useState(1);
+
   const addReviewHandler = () => {
     alert('add review');
   };
   const viewAllHandler = () => {
-    alert('view all');
+    setItemCount(service.review.users.length);
   };
   const renderItem = ({item}) => <ReviewerSection reviewer={item} />;
   const footer = () => {
@@ -35,7 +37,7 @@ const reviewSection = props => {
       <RatingSection service={service} />
       <FlatList
         style={styles.flatlist}
-        data={service.review.users}
+        data={service.review.users.slice(0,itemCount)}
         renderItem={renderItem}
         keyExtractor={(item, index) => item.id}
         ListFooterComponent={footer}

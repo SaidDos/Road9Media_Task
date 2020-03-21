@@ -5,10 +5,10 @@ import {SCREEN_WIDTH} from '../../utils/constants';
 import {Rating} from 'react-native-elements';
 
 const serviceCard = props => {
-  const {service} = props;
+  const {service, cardStyle} = props;
 
   return (
-    <View style={styles.card}>
+    <View style={cardStyle || styles.card}>
       <Image source={{uri: service.image}} style={styles.image} />
       <Text style={styles.serviceName}>{service.name}</Text>
       <Text style={styles.serviceType}>{service.type}</Text>
@@ -31,7 +31,7 @@ const serviceCard = props => {
 const styles = StyleSheet.create({
   card: {
     height: 300,
-    width: SCREEN_WIDTH - 40,
+    width:SCREEN_WIDTH - 40,
     backgroundColor: colors.WHITE,
     marginBottom: 20,
   },

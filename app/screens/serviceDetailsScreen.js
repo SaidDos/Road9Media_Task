@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
   Image,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import colors from '../utils/colors';
 import {SCREEN_WIDTH} from '../utils/constants';
@@ -13,9 +14,17 @@ import ServiceDetailsSection from '../components/views/sections/serviceDetailsSe
 import ProviderDetailsSection from '../components/views/sections/providerDetailsSection';
 import Button from '../components/buttons/button';
 import Share from 'react-native-share';
+import ServiceCard from '../components/cards/serviceCard';
 
 const serviceDetailsScreen = props => {
-  const {service} = props.navigation.state.params; // getting playlist object from navigation obj
+  const {service, services} = props.navigation.state.params; // getting playlist object from navigation obj
+  const [remainedServices, setRemainedServices] = useState([]);
+
+  useEffect(() => {
+    let remainedServices = JSON.parse(JSON.stringify(services));
+    remainedServices.splice(remainedServices[service], 1);
+    setRemainedServices(remainedServices);
+  }, [service, services]);
 
   let shareOptions = {
     title: 'Share Service Name Via',
@@ -35,6 +44,19 @@ const serviceDetailsScreen = props => {
     alert('request service');
   };
 
+  const renderItem = ({item}) => (
+    <TouchableOpacity
+      onPress={
+        () =>
+          props.navigation.navigate('ServiceDetailsScreen', {
+            service: item,
+            services: services,
+          }) //sending service object to ServiceDetails Screen when navigate
+      }>
+      <ServiceCard service={item} cardStyle={styles.cardStyle} />
+    </TouchableOpacity>
+  );
+
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -51,6 +73,18 @@ const serviceDetailsScreen = props => {
       <ServiceDetailsSection service={service} />
       <ProviderDetailsSection service={service} />
       <Text style={styles.text}>OTHER SERVICES</Text>
+      {remainedServices && remainedServices.length ? (
+        <FlatList
+          horizontal
+          style={styles.flatlist}
+          data={remainedServices}
+          extraData={remainedServices}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => item.id}
+        />
+      ) : (
+        <Text>Thers's No Other Services</Text>
+      )}
       <Button
         buttonName="REQUEST SERVICE"
         onPressButtonHandler={onPressButtonHandler}
@@ -64,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     alignItems: 'center',
-    backgroundColor:colors.WHITE
+    backgroundColor: colors.WHITE,
   },
   image: {
     width: SCREEN_WIDTH,
@@ -85,7 +119,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.BLACK,
     alignSelf: 'flex-start',
-    marginLeft: 20,
+    margin: 20,
+  },
+  flatlist: {
+    margin: 20,
+  },
+  cardStyle: {
+    height: 300,
+    backgroundColor: colors.WHITE,
+    width: SCREEN_WIDTH * 0.7,
+    marginRight: 20,
   },
 });
 
