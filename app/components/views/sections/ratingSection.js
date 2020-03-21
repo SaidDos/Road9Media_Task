@@ -1,28 +1,39 @@
 import React from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 import colors from '../../../utils/colors';
-import { SCREEN_WIDTH } from '../../../utils/constants';
+import {SCREEN_WIDTH} from '../../../utils/constants';
 import {Rating} from 'react-native-elements';
+import RatingBar from '../ratingBar';
 
 const ratingSection = props => {
   const {service} = props;
+  const maxRate = Math.max(...service.review.rates.map(rate => rate.value));
+  const renderItem = ({item}) => <RatingBar rate={item} maxRate={maxRate} />;
+
   return (
     <View style={styles.section}>
-        <View style={styles.row}>
+      <View style={styles.row}>
         <View style={styles.rating}>
-     <Text style={styles.text}>Overall Rating</Text>
-     <Text style={styles.serviceRating}>{service.review.overallRating}</Text>
-     <Rating
-          // showRating
-          type="star"
-          startingValue={service.review.overallRating}
-          readonly
-          imageSize={20}
-        //   style={{alignSelf:'flex-start'}}
-        />
-       </View>
+          <Text style={styles.text}>Overall Rating</Text>
+          <Text style={styles.serviceRating}>
+            {service.review.overallRating}
+          </Text>
+          <Rating
+            // showRating
+            type="star"
+            startingValue={service.review.overallRating}
+            readonly
+            imageSize={20}
+            //   style={{alignSelf:'flex-start'}}
+          />
         </View>
-
+        <FlatList
+          data={service.review.rates}
+          style={styles.flatlist}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => item.key}
+        />
+      </View>
     </View>
   );
 };
@@ -30,22 +41,26 @@ const ratingSection = props => {
 // styling
 const styles = StyleSheet.create({
   section: {
-      width:SCREEN_WIDTH - 40
+    width: SCREEN_WIDTH - 40,
   },
-  text:{
-    fontSize:18
+  text: {
+    fontSize: 16,
   },
-  serviceRating:{
-      fontSize:36
+  serviceRating: {
+    fontSize: 36,
   },
-  rating:{
-      alignItems:'center',
-      width:'40%',
+  rating: {
+    alignItems: 'center',
+    width: '40%',
     //   backgroundColor:'blue'
   },
-  row:{
-      flexDirection:'row'
-  }
+  row: {
+    flexDirection: 'row',
+  },
+  flatlist: {
+    // backgroundColor:'red',
+    flex: 1,
+  },
 });
 
 export default ratingSection;

@@ -14,7 +14,8 @@ export const FAKED_SERVICES_DATA = [
       phone: '01272462068',
       address: 'Maadi, Egypt',
       languages: ['Arabic', 'English'],
-      image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+      image:
+        'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
     },
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
@@ -23,6 +24,13 @@ export const FAKED_SERVICES_DATA = [
       'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo',
     review: {
       overallRating: 3.8,
+      rates: [
+        {key: 5, value: 2},
+        {key: 4, value: 8},
+        {key: 3, value: 2},
+        {key: 2, value: 1},
+        {key: 1, value: 1},
+      ],
       users: [
         {
           id: 1,
@@ -31,7 +39,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 2,
@@ -40,7 +49,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 3,
@@ -49,7 +59,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
       ],
     },
@@ -70,7 +81,8 @@ export const FAKED_SERVICES_DATA = [
       phone: '01272462068',
       address: 'Maadi, Egypt',
       languages: ['Arabic', 'English'],
-      image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+      image:
+        'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
     },
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
@@ -79,6 +91,13 @@ export const FAKED_SERVICES_DATA = [
       'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo',
     review: {
       overallRating: 4.1,
+      rates: [
+        {key: 5, value: 2},
+        {key: 4, value: 8},
+        {key: 3, value: 2},
+        {key: 2, value: 1},
+        {key: 1, value: 1},
+      ],
       users: [
         {
           id: 1,
@@ -87,7 +106,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 2,
@@ -96,7 +116,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 3,
@@ -105,7 +126,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
       ],
     },
@@ -126,7 +148,8 @@ export const FAKED_SERVICES_DATA = [
       phone: '01272462068',
       address: 'Maadi, Egypt',
       languages: ['Arabic', 'English'],
-      image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+      image:
+        'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
     },
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
@@ -135,6 +158,13 @@ export const FAKED_SERVICES_DATA = [
       'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo',
     review: {
       overallRating: 5,
+      rates: [
+        {key: 5, value: 2},
+        {key: 4, value: 8},
+        {key: 3, value: 2},
+        {key: 2, value: 1},
+        {key: 1, value: 1},
+      ],
       users: [
         {
           id: 1,
@@ -143,7 +173,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 2,
@@ -152,7 +183,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 3,
@@ -161,7 +193,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
       ],
     },
@@ -181,7 +214,8 @@ export const FAKED_SERVICES_DATA = [
       phone: '01272462068',
       address: 'Maadi, Egypt',
       languages: ['Arabic', 'English'],
-      image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+      image:
+        'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
     },
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
@@ -190,6 +224,13 @@ export const FAKED_SERVICES_DATA = [
       'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo',
     review: {
       overallRating: 2.5,
+      rates: [
+        {key: 5, value: 2},
+        {key: 4, value: 8},
+        {key: 3, value: 2},
+        {key: 2, value: 1},
+        {key: 1, value: 1},
+      ],
       users: [
         {
           id: 1,
@@ -198,7 +239,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 2,
@@ -207,7 +249,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
         {
           id: 3,
@@ -216,7 +259,8 @@ export const FAKED_SERVICES_DATA = [
           review:
             'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
           date: '8/2/2020',
-          image:'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+          image:
+            'https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
         },
       ],
     },
