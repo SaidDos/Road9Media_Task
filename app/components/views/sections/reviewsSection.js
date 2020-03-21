@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable no-alert */
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
 import colors from '../../../utils/colors';
 import {SCREEN_WIDTH} from '../../../utils/constants';
@@ -37,9 +39,9 @@ const reviewSection = props => {
       <RatingSection service={service} />
       <FlatList
         style={styles.flatlist}
-        data={service.review.users.slice(0,itemCount)}
+        data={service.review.users.slice(0, itemCount)}
         renderItem={renderItem}
-        keyExtractor={(item, index) => item.id}
+        keyExtractor={(item, index) => item.id.toString()}
         ListFooterComponent={footer}
       />
     </View>
@@ -72,15 +74,12 @@ const styles = StyleSheet.create({
   },
   row: {
     justifyContent: 'center',
-    //   alignItems:'center',
     flexDirection: 'row',
-    //   backgroundColor:'lightblue',
   },
   button: {
     height: 40,
     width: 120,
     justifyContent: 'center',
-    //   backgroundColor:'yellow'
   },
 });
 

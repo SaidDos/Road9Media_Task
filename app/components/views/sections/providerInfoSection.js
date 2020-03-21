@@ -1,8 +1,7 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import colors from '../../../utils/colors';
-import {SCREEN_WIDTH} from '../../../utils/constants';
-import {Rating} from 'react-native-elements';
 import EmailIcon from 'react-native-vector-icons/Feather';
 import PhoneIcon from 'react-native-vector-icons/FontAwesome';
 import LocationIcon from 'react-native-vector-icons/MaterialIcons';
@@ -11,8 +10,8 @@ import ServiceLanguagesSection from '../../views/sections/serviceLanguagesSectio
 const providerInfoSection = props => {
   const {service} = props;
 
-  const messageProviderHandler = ()=>{
-    alert('message provider')
+  const messageProviderHandler = () => {
+    alert('message provider');
   };
 
   return (
@@ -24,7 +23,7 @@ const providerInfoSection = props => {
         />
         <Text style={styles.userName}>{service.provider.name}</Text>
       </View>
-      <View style={[styles.row, {marginTop: 10, alignItems: 'center'}]}>
+      <View style={[styles.row, styles.icons]}>
         <EmailIcon name="mail" size={20} />
         <Text style={styles.userName}>{service.provider.email}</Text>
       </View>
@@ -36,11 +35,13 @@ const providerInfoSection = props => {
         <LocationIcon name="location-on" size={20} />
         <Text style={styles.userName}>{service.provider.address}</Text>
       </View>
-      <View style={[styles.row, {marginTop: 10}]}>
+      <View style={[styles.row, styles.margin]}>
         <Text style={styles.speakText}>Speaks: </Text>
         <ServiceLanguagesSection languages={service.provider.languages} />
       </View>
-      <TouchableOpacity onPress={messageProviderHandler} style={styles.messButton}>
+      <TouchableOpacity
+        onPress={messageProviderHandler}
+        style={styles.messButton}>
         <Text style={styles.button}>MESSAGE PROVIDER</Text>
       </TouchableOpacity>
     </View>
@@ -48,8 +49,7 @@ const providerInfoSection = props => {
 };
 
 const styles = StyleSheet.create({
-  section: {
-  },
+  section: {},
   row: {
     flexDirection: 'row',
   },
@@ -66,12 +66,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center',
   },
-  button:{
-    color:colors.APP_THEME_COLOR
+  button: {
+    color: colors.APP_THEME_COLOR,
   },
-  messButton:{
-    alignSelf:'center', 
-    margin:10,
-  }
+  messButton: {
+    alignSelf: 'center',
+    margin: 10,
+  },
+  icons: {
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  margin: {
+    marginTop: 10,
+  },
 });
 export default providerInfoSection;

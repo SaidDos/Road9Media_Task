@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
-import colors from '../../../utils/colors';
 import {SCREEN_WIDTH} from '../../../utils/constants';
 import {Rating} from 'react-native-elements';
 import RatingBar from '../ratingBar';
@@ -19,19 +18,17 @@ const ratingSection = props => {
             {service.review.overallRating}
           </Text>
           <Rating
-            // showRating
             type="star"
             startingValue={service.review.overallRating}
             readonly
             imageSize={20}
-            //   style={{alignSelf:'flex-start'}}
           />
         </View>
         <FlatList
           data={service.review.rates}
           style={styles.flatlist}
           renderItem={renderItem}
-          keyExtractor={(item, index) => item.key}
+          keyExtractor={(item, index) => item.key.toString()}
         />
       </View>
     </View>
@@ -52,13 +49,11 @@ const styles = StyleSheet.create({
   rating: {
     alignItems: 'center',
     width: '40%',
-    //   backgroundColor:'blue'
   },
   row: {
     flexDirection: 'row',
   },
   flatlist: {
-    // backgroundColor:'red',
     flex: 1,
   },
 });

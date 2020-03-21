@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-alert */
 import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
@@ -20,7 +22,6 @@ import {getFilteredServices} from '../utils/functions/getFilteredServices';
 
 const servicesScreen = props => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState(null); //initializing search term by null
   const [modalVisible, setModalVisible] = useState(false);
   const isLoading = useSelector(state => state.listServices.isLoading);
   let services = useSelector(state => state.listServices.services);
@@ -42,6 +43,7 @@ const servicesScreen = props => {
 
   useEffect(() => {
     dispatch(listServices(listServicesRequestResponseHandler)); //fetching services when mounting screen
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -51,7 +53,11 @@ const servicesScreen = props => {
   const renderItem = ({item}) => (
     <TouchableOpacity
       onPress={
-        () => props.navigation.navigate('ServiceDetailsScreen', {service: item, services:serviceList}) //sending service object to ServiceDetails Screen when navigate
+        () =>
+          props.navigation.navigate('ServiceDetailsScreen', {
+            service: item,
+            services: serviceList,
+          }) //sending service object to ServiceDetails Screen when navigate
       }>
       <ServiceCard service={item} />
     </TouchableOpacity>
@@ -79,8 +85,13 @@ const servicesScreen = props => {
     setModalVisible(false);
   };
 
-  const getFilteredData = (providerName, serviceRating, servicePrice)=>{
-    let sortedServices = getFilteredServices(serviceList, providerName, serviceRating, servicePrice );
+  const getFilteredData = (providerName, serviceRating, servicePrice) => {
+    let sortedServices = getFilteredServices(
+      serviceList,
+      providerName,
+      serviceRating,
+      servicePrice,
+    );
     closeModal();
     setServiceList(sortedServices);
   };
@@ -88,7 +99,7 @@ const servicesScreen = props => {
   return (
     <View style={styles.container}>
       <View style={styles.margin}>
-        <SearchTextInput onchangeText={onChangeText} searchTerm={searchTerm} />
+        <SearchTextInput onchangeText={onChangeText} />
       </View>
       <>
         <FilterSortSection
@@ -98,17 +109,17 @@ const servicesScreen = props => {
         />
       </>
       <FlatList
-       keyboardShouldPersistTaps="always"
+        keyboardShouldPersistTaps="always"
         data={serviceList}
         extraData={serviceList}
         renderItem={renderItem}
-        keyExtractor={(item, index) => item.id}
+        keyExtractor={(item, index) => item.id.toString()}
         ListFooterComponent={footer}
       />
-      <ApplyLoanModal 
-      modalVisible={modalVisible} 
-      closeModal={closeModal}
-      getFilteredData={getFilteredData}
+      <ApplyLoanModal
+        modalVisible={modalVisible}
+        closeModal={closeModal}
+        getFilteredData={getFilteredData}
       />
     </View>
   );

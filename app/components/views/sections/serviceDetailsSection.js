@@ -21,7 +21,7 @@ const serviceDetailsSection = props => {
           startingValue={service.review.overallRating}
           readonly
           imageSize={20}
-          style={{padding: 5}}
+          style={styles.rating}
           tintColor={'#f5f5f5'}
         />
         <Text style={styles.serviceRating}>{service.review.overallRating}</Text>
@@ -47,19 +47,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     borderRadius: 10,
     marginTop: 10,
-    padding:10,
-    borderColor:colors.GREY,
-    borderWidth:1
+    padding: 10,
+    borderColor: colors.GREY,
+    borderWidth: 1,
   },
   serviceName: {
     color: colors.BLACK,
     fontSize: 18,
     fontWeight: 'bold',
-    // padding: 5,
   },
   serviceType: {
     color: colors.GREY,
-    // padding: 5,
   },
   servicePrice: {
     position: 'absolute',
@@ -71,11 +69,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   row: {
-    // flex:1,
     height: 30,
-    // backgroundColor:'yellow',
     flexDirection: 'row',
-    alignItems:'center',
+    alignItems: 'center',
+  },
+  rating: {
+    padding: 5,
   },
 });
 export default serviceDetailsSection;

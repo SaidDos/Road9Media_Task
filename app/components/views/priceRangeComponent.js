@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import colors from '../../utils/colors';
 import {SCREEN_WIDTH} from '../../utils/constants';
 import ArrowIcon from 'react-native-vector-icons/Ionicons';
@@ -28,7 +29,7 @@ const priceRangeComponent = props => {
       />
       {show ? (
         <MultiSlider
-          containerStyle={{alignSelf: 'center'}}
+          containerStyle={styles.center}
           values={[servicePrice[0], servicePrice[1]]}
           sliderLength={240}
           onValuesChange={price => getServicePrice(price)}
@@ -62,6 +63,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 50,
+  },
+  center: {
+    alignSelf: 'center',
   },
 });
 

@@ -6,6 +6,6 @@ const colors = {
   WHITE: 'white',
   BLACK: 'black',
   LIGHT_GREY: 'lightgrey',
-  GREEN:'green',
+  GREEN: 'green',
 };
 export default colors;

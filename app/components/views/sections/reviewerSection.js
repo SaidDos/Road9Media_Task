@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput, Image} from 'react-native';
-import colors from '../../../utils/colors';
 import {SCREEN_WIDTH} from '../../../utils/constants';
 import {Rating} from 'react-native-elements';
 import Separator from '../seprator';
@@ -14,14 +13,13 @@ const reviewerSection = props => {
         <View style={styles.column}>
           <Text>{reviewer.name}</Text>
           <Rating
-            // showRating
             type="star"
             startingValue={reviewer.rate}
             readonly
             imageSize={20}
           />
         </View>
-  <Text style={styles.date}>{reviewer.date}</Text>
+        <Text style={styles.date}>{reviewer.date}</Text>
       </View>
       <TextInput editable={false} value={reviewer.review} multiline />
       <Separator style={styles.separator} />
@@ -42,17 +40,17 @@ const styles = StyleSheet.create({
   },
   column: {
     flexDirection: 'column',
-    marginLeft:10
+    marginLeft: 10,
   },
-  date:{
-      position:'absolute',
-      right:20
+  date: {
+    position: 'absolute',
+    right: 20,
   },
-  separator:{
-      alignSelf:'center',
-      margin:10,
-      width:'90%'
-  }
+  separator: {
+    alignSelf: 'center',
+    margin: 10,
+    width: '90%',
+  },
 });
 
 export default reviewerSection;

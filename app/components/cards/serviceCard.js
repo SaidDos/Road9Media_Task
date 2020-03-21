@@ -19,10 +19,12 @@ const serviceCard = props => {
           startingValue={service.review.overallRating}
           readonly
           imageSize={20}
-          style={{padding:5}}
+          style={styles.rating}
         />
         <Text style={styles.serviceRating}>{service.review.overallRating}</Text>
-        <Text style={styles.servicePrice}>{service.price} SAR <Text style={{color:colors.GREY}}>/ Hour</Text></Text>
+        <Text style={styles.servicePrice}>
+          {service.price} SAR <Text style={{color: colors.GREY}}>/ Hour</Text>
+        </Text>
       </View>
     </View>
   );
@@ -31,7 +33,7 @@ const serviceCard = props => {
 const styles = StyleSheet.create({
   card: {
     height: 300,
-    width:SCREEN_WIDTH - 40,
+    width: SCREEN_WIDTH - 40,
     backgroundColor: colors.WHITE,
     marginBottom: 20,
   },
@@ -52,20 +54,20 @@ const styles = StyleSheet.create({
   servicePrice: {
     position: 'absolute',
     right: 10,
-    alignSelf:'center',
-    color:colors.APP_THEME_COLOR,
-    fontWeight:'bold',
+    alignSelf: 'center',
+    color: colors.APP_THEME_COLOR,
+    fontWeight: 'bold',
   },
   serviceRating: {
     justifyContent: 'flex-start',
-    alignSelf:'center'
+    alignSelf: 'center',
   },
   row: {
-    // flex:1,
     height: 30,
-    // backgroundColor:'yellow',
     flexDirection: 'row',
-
+  },
+  rating: {
+    padding: 5,
   },
 });
 export default serviceCard;

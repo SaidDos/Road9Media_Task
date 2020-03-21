@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import colors from '../../utils/colors';
 import {SCREEN_WIDTH} from '../../utils/constants';
 import ArrowIcon from 'react-native-vector-icons/Ionicons';
@@ -29,7 +30,7 @@ const ratingComponent = props => {
           type="star"
           startingValue={serviceRating}
           imageSize={30}
-          style={{padding: 5}}
+          style={styles.rating}
           onFinishRating={getServiceRating}
         />
       ) : null}
@@ -46,12 +47,15 @@ const styles = StyleSheet.create({
     color: colors.BLACK,
     margin: 10,
     fontWeight: 'bold',
-    marginLeft:20
+    marginLeft: 20,
   },
   icon: {
     position: 'absolute',
     top: 10,
     right: 40,
+  },
+  rating: {
+    padding: 5,
   },
 });
 

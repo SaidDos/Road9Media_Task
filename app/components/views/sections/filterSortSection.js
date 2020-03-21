@@ -19,7 +19,7 @@ const filterSortSection = props => {
           onPress={filterHandler}
           color={colors.GREY}
         />
-        <Text style={[styles.center, {color:colors.GREY}]}>Filter</Text>
+        <Text style={[styles.center, {color: colors.GREY}]}>Filter</Text>
         <View style={styles.separator} />
         <SortIcon
           name="sort"
@@ -28,7 +28,9 @@ const filterSortSection = props => {
           onPress={sortHandler}
           color={colors.APP_THEME_COLOR}
         />
-        <Text style={[styles.center, {color:colors.APP_THEME_COLOR}]}>Sort</Text>
+        <Text style={[styles.center, {color: colors.APP_THEME_COLOR}]}>
+          Sort
+        </Text>
       </View>
     </View>
   );
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50,
     width: SCREEN_WIDTH - 40,
-    // backgroundColor: colors.LIGHT_GREY,
     alignItems: 'center',
   },
   filterSortSection: {
@@ -47,7 +48,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     alignSelf: 'center',
-    // backgroundColor: 'yellow',
   },
   center: {
     alignSelf: 'center',
@@ -62,9 +62,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 5,
   },
-  numOfServices:{
-      color:colors.GREY,
-      fontWeight:'bold',
-  }
+  numOfServices: {
+    color: colors.GREY,
+    fontWeight: 'bold',
+  },
 });
 export default filterSortSection;

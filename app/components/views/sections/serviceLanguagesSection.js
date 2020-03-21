@@ -1,21 +1,20 @@
 import React from 'react';
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import colors from '../../../utils/colors';
-import { SCREEN_WIDTH } from '../../../utils/constants';
 
 const serviceLanguagesSection = props => {
   const {languages} = props;
   return (
     <View style={styles.section}>
-       {languages && languages.length ? 
-    languages.map((lang, index) => {
-        return (
-          <View key={index} style={styles.userLang}>
-            <Text>{lang}</Text>
-          </View>
-        );
-      }):null
-}
+      {languages && languages.length
+        ? languages.map((lang, index) => {
+            return (
+              <View key={index} style={styles.userLang}>
+                <Text>{lang}</Text>
+              </View>
+            );
+          })
+        : null}
     </View>
   );
 };
@@ -23,7 +22,7 @@ const serviceLanguagesSection = props => {
 // styling
 const styles = StyleSheet.create({
   section: {
-    flexDirection:'row',
+    flexDirection: 'row',
   },
   userLang: {
     width: null,

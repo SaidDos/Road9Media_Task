@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  Image,
   TouchableOpacity,
   TextInput,
   Modal,
@@ -16,29 +16,25 @@ import Separator from '../views/seprator';
 import PriceRangeComponent from '../views/priceRangeComponent';
 
 const filterModal = props => {
-  const { closeModal, modalVisible, getFilteredData} = props;
+  const {closeModal, modalVisible, getFilteredData} = props;
   const [providerName, setProviderName] = useState('');
   const [serviceRating, setServiceRating] = useState(0);
   const [servicePrice, setServicePrice] = useState([0, 5000]);
 
-  const getProviderName = (name) =>{
+  const getProviderName = name => {
     setProviderName(name);
   };
 
-  const getServiceRating = (rating) =>{
+  const getServiceRating = rating => {
     setServiceRating(rating);
   };
 
-  const getServicePrice = (price) =>{
+  const getServicePrice = price => {
     setServicePrice(price);
   };
 
   const filterHandler = () => {
     getFilteredData(providerName, serviceRating, servicePrice);
-  };
-
-  const onChangeText = text => {
-    setProviderName(text);
   };
 
   return (
@@ -57,9 +53,15 @@ const filterModal = props => {
             underlineColorAndroid={colors.GREY}
             value={providerName}
           />
-          <RatingComponent getServiceRating={getServiceRating} serviceRating={serviceRating} />
+          <RatingComponent
+            getServiceRating={getServiceRating}
+            serviceRating={serviceRating}
+          />
           <Separator style={styles.separator} />
-          <PriceRangeComponent getServicePrice={getServicePrice} servicePrice={servicePrice} />
+          <PriceRangeComponent
+            getServicePrice={getServicePrice}
+            servicePrice={servicePrice}
+          />
           <TouchableOpacity style={styles.filterButton} onPress={filterHandler}>
             <Text style={styles.filterTextButton}>FILTER</Text>
           </TouchableOpacity>
@@ -86,7 +88,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     top: 15,
-    // alignSelf: 'flex-end',
   },
   row: {
     flexDirection: 'row',

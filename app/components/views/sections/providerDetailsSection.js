@@ -36,17 +36,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 10,
     padding: 10,
-    borderColor:colors.GREY,
-    borderWidth:1
+    borderColor: colors.GREY,
+    borderWidth: 1,
   },
   langText: {
     fontWeight: 'bold',
     color: colors.GREY,
-    margin:10
+    margin: 10,
   },
-  separator:{
-    margin:10, 
-    alignSelf:'center'
-  }
+  separator: {
+    margin: 10,
+    alignSelf: 'center',
+  },
 });
 export default providerDetailsSection;

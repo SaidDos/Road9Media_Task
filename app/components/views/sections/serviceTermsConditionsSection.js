@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import colors from '../../../utils/colors';
 import {SCREEN_WIDTH} from '../../../utils/constants';
@@ -8,7 +9,7 @@ const serviceTermsConditionsSection = props => {
   const {service} = props;
   const [show, setShow] = useState(false);
 
-  const toggleHandler=()=>{
+  const toggleHandler = () => {
     setShow(!show);
   };
 
@@ -16,13 +17,19 @@ const serviceTermsConditionsSection = props => {
     <View style={styles.section}>
       <Text style={styles.text}>Terms and Conditions</Text>
       <ArrowIcon
-        name={!show? 'ios-arrow-down' : 'ios-arrow-up'}
+        name={!show ? 'ios-arrow-down' : 'ios-arrow-up'}
         size={20}
         style={styles.icon}
         onPress={toggleHandler}
         color={colors.GREY}
       />
-      {show?(<TextInput editable={false} value={service.termsAndConditions} multiline />):null}
+      {show ? (
+        <TextInput
+          editable={false}
+          value={service.termsAndConditions}
+          multiline
+        />
+      ) : null}
     </View>
   );
 };

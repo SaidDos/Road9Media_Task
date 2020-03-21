@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-  StyleSheet, Text, View, Image,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import colors from '../../utils/colors';
 
-const separator = (props) => {
-  const { style } = props;
-  return (
-    <View style={[styles.separator, style]} />
-  );
+const separator = props => {
+  const {style} = props;
+  return <View style={[styles.separator, style]} />;
 };
 
 // styling

@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
@@ -21,9 +23,9 @@ const serviceDetailsScreen = props => {
   const [remainedServices, setRemainedServices] = useState([]);
 
   useEffect(() => {
-    let remainedServices = JSON.parse(JSON.stringify(services));
-    remainedServices.splice(remainedServices[service], 1);
-    setRemainedServices(remainedServices);
+    let remainedServicesArr = JSON.parse(JSON.stringify(services));
+    remainedServicesArr.splice(remainedServicesArr[service], 1);
+    setRemainedServices(remainedServicesArr);
   }, [service, services]);
 
   let shareOptions = {
@@ -60,14 +62,14 @@ const serviceDetailsScreen = props => {
   return (
     <ScrollView
       contentContainerStyle={styles.container}
-      style={{flex: 1, marginBottom: 20}}>
+      style={styles.scrollView}>
       <Image source={{uri: service.image}} style={styles.image} />
       <TouchableOpacity onPress={shareHandler} style={styles.shareIcon}>
         <ShareIcon
           name="share"
           size={30}
           color={colors.WHITE}
-          style={{alignSelf: 'center'}}
+          style={styles.center}
         />
       </TouchableOpacity>
       <ServiceDetailsSection service={service} />
@@ -80,7 +82,7 @@ const serviceDetailsScreen = props => {
           data={remainedServices}
           extraData={remainedServices}
           renderItem={renderItem}
-          keyExtractor={(item, index) => item.id}
+          keyExtractor={(item, index) => item.id.toString()}
         />
       ) : (
         <Text>Thers's No Other Services</Text>
@@ -129,6 +131,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.WHITE,
     width: SCREEN_WIDTH * 0.7,
     marginRight: 20,
+  },
+  scrollView: {
+    flex: 1,
+    marginBottom: 20,
+  },
+  center: {
+    alignSelf: 'center',
   },
 });
 

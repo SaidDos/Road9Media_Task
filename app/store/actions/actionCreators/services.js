@@ -15,7 +15,6 @@ export const listServices = listServicesRequestResponseHandler => dispatch => {
   api
     .getData('/posts', 'GET')
     .then(responseJson => {
-      console.log('response : '+JSON.stringify(responseJson))
       dispatch(listServicesSuccess(responseJson));
       listServicesRequestResponseHandler.onSuccess();
     })
