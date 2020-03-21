@@ -4,12 +4,13 @@ import Service from '../../../models/Service';
 import {SERVICES} from '../../../utils/constants';
 
 const initialState = {
-  services: [],
+  services: [], // initializing services of empty array
   isLoading: false,
 };
 
 const mappingServices = (state, services) => {
   if (services && services.length) {
+    // in case there's a response we map it first to our service model
     const mappedServices = services.map(service => {
       const aService = new Service();
       aService.mapService(service);
@@ -17,7 +18,7 @@ const mappingServices = (state, services) => {
     });
     return updateObject(state, {services: mappedServices, isLoading: false});
   }
-  return updateObject(state, {services: SERVICES, isLoading: false});
+  return updateObject(state, {services: SERVICES, isLoading: false}); // this is our case here we get data from local file
 };
 
 const listServices = (state = initialState, action) => {

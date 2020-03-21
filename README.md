@@ -1,7 +1,7 @@
-# Spotify
+# Road9Media_Task
 
-A mobile application for both android and IOS devices to get featured playlists 
-and thier corresponding track artists.
+A task mobile application for both android and IOS devices to search about services, sort,
+filter and view all Service details.
 
 ## Getting Started
 

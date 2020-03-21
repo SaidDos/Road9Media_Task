@@ -28,6 +28,7 @@ const providerDetailsSection = props => {
   );
 };
 
+// styling
 const styles = StyleSheet.create({
   section: {
     height: null,

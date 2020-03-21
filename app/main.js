@@ -8,6 +8,7 @@ import store from '../app/store/configureStore';
 
 const App = () => {
   return (
+    // safeAreaView to handle notch in new iphones
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor={colors.APP_THEME_COLOR}

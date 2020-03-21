@@ -10,13 +10,15 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const reviewSection = props => {
   const {service} = props;
-  const [itemCount, setItemCount] = useState(1);
+  const [itemCount, setItemCount] = useState(1); // here we control number of items that flatlist renders
 
+  // handlers
   const addReviewHandler = () => {
+    // supposed to add review to that service as a user
     alert('add review');
   };
   const viewAllHandler = () => {
-    setItemCount(service.review.users.length);
+    setItemCount(service.review.users.length); // rendering all flatlist items
   };
   const renderItem = ({item}) => <ReviewerSection reviewer={item} />;
   const footer = () => {

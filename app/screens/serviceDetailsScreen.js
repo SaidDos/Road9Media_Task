@@ -19,7 +19,7 @@ import Share from 'react-native-share';
 import ServiceCard from '../components/cards/serviceCard';
 
 const serviceDetailsScreen = props => {
-  const {service, services} = props.navigation.state.params; // getting playlist object from navigation obj
+  const {service, services} = props.navigation.state.params; // getting service object and services array from navigation obj
   const [remainedServices, setRemainedServices] = useState([]);
 
   useEffect(() => {
@@ -28,9 +28,10 @@ const serviceDetailsScreen = props => {
     setRemainedServices(remainedServicesArr);
   }, [service, services]);
 
+  // handlers
   let shareOptions = {
     title: 'Share Service Name Via',
-    message: service.name,
+    message: service.name, // here we share service name, but we can share anything like image, price,..etc
   };
   const shareHandler = () => {
     Share.open(shareOptions)
@@ -43,6 +44,7 @@ const serviceDetailsScreen = props => {
   };
 
   const onPressButtonHandler = () => {
+    // supposed to request to use that service
     alert('request service');
   };
 
@@ -53,7 +55,7 @@ const serviceDetailsScreen = props => {
           props.navigation.navigate('ServiceDetailsScreen', {
             service: item,
             services: services,
-          }) //sending service object to ServiceDetails Screen when navigate
+          }) //sending service object and services array to ServiceDetails Screen when navigate
       }>
       <ServiceCard service={item} cardStyle={styles.cardStyle} />
     </TouchableOpacity>
@@ -98,7 +100,6 @@ const serviceDetailsScreen = props => {
 // styling
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     alignItems: 'center',
     backgroundColor: colors.WHITE,
   },

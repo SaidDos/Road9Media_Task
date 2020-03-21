@@ -9,5 +9,6 @@ export default class Service {
     this.rate = checkValue(service.rate, 0);
     this.price = checkValue(service.price, 0);
     this.image = checkValue(service.image, '');
+    // ... more atributes
   }
 }

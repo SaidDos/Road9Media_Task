@@ -14,6 +14,7 @@ async function handleErrors(response) {
 
 const api = {
   getData(URL, Method) {
+    // in case we need to send data in body we retrieve it as argument
     const headers = {
       'Content-Type': 'application/json',
     };

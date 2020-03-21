@@ -1,3 +1,4 @@
+// local services data
 export const FAKED_SERVICES_DATA = [
   {
     id: 1,

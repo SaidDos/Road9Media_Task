@@ -23,7 +23,8 @@ const serviceTermsConditionsSection = props => {
         onPress={toggleHandler}
         color={colors.GREY}
       />
-      {show ? (
+
+      {show ? ( // rendering textinput based on toggeling button
         <TextInput
           editable={false}
           value={service.termsAndConditions}

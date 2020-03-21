@@ -1,3 +1,4 @@
+// this reusable card is used twise in search service screen and service details
 import React from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import colors from '../../utils/colors';
@@ -14,7 +15,6 @@ const serviceCard = props => {
       <Text style={styles.serviceType}>{service.type}</Text>
       <View style={styles.row}>
         <Rating
-          // showRating
           type="star"
           startingValue={service.review.overallRating}
           readonly

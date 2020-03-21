@@ -10,6 +10,7 @@ const serviceDetailsSection = props => {
     color: colors.GREY,
   };
   if (service.active) {
+    // active with green color in case it's true otherwise it will be grey
     activeStyle.color = colors.GREEN;
   }
   return (
@@ -40,6 +41,7 @@ const serviceDetailsSection = props => {
   );
 };
 
+// styling
 const styles = StyleSheet.create({
   section: {
     height: 140,

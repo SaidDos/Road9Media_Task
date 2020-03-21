@@ -26,7 +26,6 @@ const ratingComponent = props => {
       />
       {show ? (
         <Rating
-          // showRating
           type="star"
           startingValue={serviceRating}
           imageSize={30}

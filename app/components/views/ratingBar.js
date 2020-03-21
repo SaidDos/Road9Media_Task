@@ -3,8 +3,8 @@ import {StyleSheet, Text, View} from 'react-native';
 
 const ratingBar = props => {
   const {rate, maxRate} = props;
-  const MAX_WIDTH = 80;
-  const barWidth = MAX_WIDTH * (rate.value / maxRate);
+  const MAX_WIDTH = 80; // setting max bar length of 80
+  const barWidth = MAX_WIDTH * (rate.value / maxRate); // calculating bar width of each rate to be responsive
 
   return (
     <View style={styles.row}>

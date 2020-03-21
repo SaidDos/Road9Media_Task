@@ -1,3 +1,4 @@
+// local search about services based on SERVICE NAME regardless uppercase or lowecase
 export const search = (data, searchTerm) => {
   const clonnedData = JSON.parse(JSON.stringify(data));
 

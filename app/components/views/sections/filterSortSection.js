@@ -36,6 +36,7 @@ const filterSortSection = props => {
   );
 };
 
+// styling
 const styles = StyleSheet.create({
   section: {
     flexDirection: 'row',

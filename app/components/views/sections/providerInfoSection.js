@@ -11,6 +11,7 @@ const providerInfoSection = props => {
   const {service} = props;
 
   const messageProviderHandler = () => {
+    // supposed to send message with service provider
     alert('message provider');
   };
 

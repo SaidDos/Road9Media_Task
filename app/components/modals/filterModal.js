@@ -21,6 +21,7 @@ const filterModal = props => {
   const [serviceRating, setServiceRating] = useState(0);
   const [servicePrice, setServicePrice] = useState([0, 5000]);
 
+  // handlers
   const getProviderName = name => {
     setProviderName(name);
   };

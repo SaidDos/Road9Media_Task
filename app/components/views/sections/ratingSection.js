@@ -6,7 +6,7 @@ import RatingBar from '../ratingBar';
 
 const ratingSection = props => {
   const {service} = props;
-  const maxRate = Math.max(...service.review.rates.map(rate => rate.value));
+  const maxRate = Math.max(...service.review.rates.map(rate => rate.value)); // here we loop over all service rates and get the highest rate
   const renderItem = ({item}) => <RatingBar rate={item} maxRate={maxRate} />;
 
   return (

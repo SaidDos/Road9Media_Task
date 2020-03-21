@@ -36,6 +36,7 @@ const servicesScreen = props => {
     }
   };
 
+  // here we handling error that came from response
   const listServicesRequestResponseHandler = {
     onSuccess: () => {},
     onFail: error => alert(error),
@@ -70,15 +71,14 @@ const servicesScreen = props => {
     return <Text style={styles.footer}> No More Services </Text>;
   };
 
+  // handlers
   const sortHandler = () => {
     let sortedServices = getSortedArray(serviceList);
     setServiceList(sortedServices);
-    // alert('sort');
   };
 
   const filterHandler = () => {
     setModalVisible(true);
-    // alert('filter');
   };
 
   const closeModal = () => {
